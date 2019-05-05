@@ -21,13 +21,14 @@ Route.on('/').render('welcome')
 Route.group(() => {
     Route.get('/', 'UserController.getUser')
     Route.post('/', 'UserController.addUser')
+    Route.post('/update', 'UserController.addUser')
 }).prefix('/api/v1/user')
 
 Route.group(() => {
-    Route.get('/', ({response}) => {
-        response.send({ message: "Hello World from task" })
-    })
-    Route.post('/', ({response}) => {
-        response.send({ message: "Hello World" })
-    })
-}).prefix('/api/v1/task')
+    Route.get('/', 'UserController.getUser')
+    Route.post('/', 'UserController.addUser')
+    Route.post('/update', 'UserController.addUser')
+}).prefix('/api/v1/employee')
+
+Route.post('/api/v1/login', 'UserController.addUser')
+
